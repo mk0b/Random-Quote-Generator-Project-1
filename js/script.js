@@ -14,9 +14,69 @@ project 1 - A Random Quote Generator
   Add the `year` property to at least one object in the array.
   Use console.log() to log your array of quotes to the console.
 ***/
+/***
+ * Quotes array with the following properties and their level of requirement.
+ * Required in all: quote, source
+ * Required in at least 1: citation, year
+ * Ones I'm adding myself: source title, quote type
+ * Need at least 5 quotes. 
+ * TODO: decide if year should stay a string or be used as a number.
+ * TODO: "Additional properties are displayed on screen when present in quote object."
+ */
+const quotes = [
+  {
+    quote: 'Build what you want to see in the world.',
+    source: 'Jack Dorsey',
+    source_title: 'Founder of Twitter & Square',
+    year: '2012',
+    citation: 'Foundation Podcast',
+    quote_type: 'Tech'
+  },
+  {
+    quote: 'The journey is apart of the experience - an expression of the seriousness of ones intent. One doesn’t take the A train to Mecca.',
+    source: 'Anthony Bourdain',
+    source_title: 'Deceased American celebrity chef, author, and travel documentarian.',
+    year: 'Unknown',
+    citation: 'Unknown',
+    quote_type: 'Travel'
+  },
+  {
+    quote: 'My greatest skill has been to want but little.',
+    source: 'Henry David Thoreau',
+    source_title: 'Deceased Poet, Journalist',
+    year: '1854',
+    citation: 'Walden',
+    quote_type: 'Minimalist'
+  },
+  {
+    quote: 'As we look ahead into the next century, leaders will be those who empower others.',
+    source: 'Bill Gates',
+    source_title: 'Founder of Microsft, Philathropist',
+    year: 'Unknown',
+    citation: 'Unknown',
+    quote_type: 'Tech'
+  },
+  {
+    quote: 'My passion has been to build an enduring company where people were motivated to make great products. Everything else was secondary.',
+    source: 'Steve Jobs',
+    source_title: 'Founder of Apple',
+    year: 'Uknown',
+    citation: 'Steve Jobs Biography by Walter Isaacson',
+    quote_type: 'Tech'
+  },
+  {
+    quote: 'I have to remind myself everyday that I’m going to strike out more than I get a hit. I have to not be afraid of the strikeouts. Doesn’t mean I don’t train super hard to hit the ball and learn new techniques, but none of that is going to make me hit 100%. 1/5 is a great average.',
+    source: 'Ryan Carson',
+    source_title: 'Founder of Treehouse',
+    year: '2019',
+    citation: 'Twitter @ryancarson',
+    quote_type: 'Tech'
+  }
+];
 
+//testing quotes array.
 
-
+console.log(quotes);
 
 /***
   Create the `getRandomQuote` function to:
@@ -24,7 +84,10 @@ project 1 - A Random Quote Generator
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
 
+function getRandomQuote () {
 
+  
+}
 
 
 /***
