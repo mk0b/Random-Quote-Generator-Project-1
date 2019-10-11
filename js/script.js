@@ -84,11 +84,17 @@ console.log(quotes);
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
 
+//set randomNumber variable with the random number equation. 
+//Should use Math.ceil because we want to possibility of 0.
+//Almost made this too complicated but I just needed to store the random number into another variable and return that.
 function getRandomQuote () {
-
-  
+  let randomNumber = Math.ceil(Math.random() * quotes.length);
+  let randomQuote = quotes[randomNumber];
+  return randomQuote;
 }
 
+//testing TODO: remove this when done.
+console.log(getRandomQuote());
 
 /***
   Create the `printQuote` function to: 
