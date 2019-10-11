@@ -30,7 +30,7 @@ const quotes = [
     source_title: 'Founder of Twitter & Square',
     year: '2012',
     citation: 'Foundation Podcast',
-    quote_type: 'Tech'
+    quote_type: '#tech'
   },
   {
     quote: 'The journey is apart of the experience - an expression of the seriousness of ones intent. One doesn’t take the A train to Mecca.',
@@ -38,7 +38,7 @@ const quotes = [
     source_title: 'Deceased American celebrity chef, author, and travel documentarian.',
     year: 'Unknown',
     citation: 'Unknown',
-    quote_type: 'Travel'
+    quote_type: '#travel'
   },
   {
     quote: 'My greatest skill has been to want but little.',
@@ -46,7 +46,7 @@ const quotes = [
     source_title: 'Deceased Poet, Journalist',
     year: '1854',
     citation: 'Walden',
-    quote_type: 'Minimalist'
+    quote_type: '#minimalist'
   },
   {
     quote: 'As we look ahead into the next century, leaders will be those who empower others.',
@@ -54,7 +54,7 @@ const quotes = [
     source_title: 'Founder of Microsft, Philathropist',
     year: 'Unknown',
     citation: 'Unknown',
-    quote_type: 'Tech'
+    quote_type: '#tech'
   },
   {
     quote: 'My passion has been to build an enduring company where people were motivated to make great products. Everything else was secondary.',
@@ -62,7 +62,7 @@ const quotes = [
     source_title: 'Founder of Apple',
     year: 'Uknown',
     citation: 'Steve Jobs Biography by Walter Isaacson',
-    quote_type: 'Tech'
+    quote_type: '#tech'
   },
   {
     quote: 'I have to remind myself everyday that I’m going to strike out more than I get a hit. I have to not be afraid of the strikeouts. Doesn’t mean I don’t train super hard to hit the ball and learn new techniques, but none of that is going to make me hit 100%. 1/5 is a great average.',
@@ -70,7 +70,7 @@ const quotes = [
     source_title: 'Founder of Treehouse',
     year: '2019',
     citation: 'Twitter @ryancarson',
-    quote_type: 'Tech'
+    quote_type: '#tech'
   }
 ];
 
@@ -105,11 +105,33 @@ console.log(getRandomQuote());
    - Add the quote and source section to the HTML string.
    - Use an if statement to check for the citation property before adding it to the HTML string.
    - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
+   - TODO: Don't forget to close that final `p` tag.
+   - TODO: Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
+//writing through the if statement pathways
+//Can't use or statement because 
+//path 1: html format for other one = true
+//path 2: html format for one = true
+//path 3: html format for BOTH = true
+//last path: html format for neither being true
+function printQuote () {
+  let randomQuote = getRandomQuote();
+  let html = '';
+  if (quotes[randomQuote].citation != 'Uknown') {
+      //special html to add citation to show
+      html += '<p class="quote">' + quotes[randomQuote].quote + '</p> <p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title +'</span><span class="citation">' + quotes[randomQuote].citation +'</span><span class="quote-type">' + quotes[randomQuote].quote_type +'</span></p>';
+  } else if (quotes[randomQuote].year != 'Uknown') {
+      //special html to add year to show
+      html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="year">' + quotes[randomQuote].year + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
+    } else if (quotes[randomQuote].year != 'Uknown' & quotes[randomQuote].citation) {
+      //special html to add citation and year to show
+      html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="citation">' + quotes[randomQuote].citation + '</span><span class="year">' + quotes[randomQuote].year + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
+      } else {
+        //regular html
+        html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
+      }
 
-
+}
 
 
 /***
