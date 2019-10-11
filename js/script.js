@@ -20,8 +20,6 @@ project 1 - A Random Quote Generator
  * Required in at least 1: citation, year
  * Ones I'm adding myself: source title, quote type
  * Need at least 5 quotes. 
- * TODO: decide if year should stay a string or be used as a number.
- * TODO: "Additional properties are displayed on screen when present in quote object."
  */
 const quotes = [
   {
@@ -117,15 +115,15 @@ console.log(getRandomQuote());
 function printQuote () {
   let randomQuote = getRandomQuote();
   let html = '';
-  if (quotes[randomQuote].citation != 'Uknown') {
-      //special html to add citation to show
-      html += '<p class="quote">' + quotes[randomQuote].quote + '</p> <p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title +'</span><span class="citation">' + quotes[randomQuote].citation +'</span><span class="quote-type">' + quotes[randomQuote].quote_type +'</span></p>';
+  if (quotes[randomQuote].year != 'Uknown' & quotes[randomQuote].citation) {
+      //special html to add citation and year to show
+      html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="citation">' + quotes[randomQuote].citation + '</span><span class="year">' + quotes[randomQuote].year + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
   } else if (quotes[randomQuote].year != 'Uknown') {
       //special html to add year to show
       html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="year">' + quotes[randomQuote].year + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
-    } else if (quotes[randomQuote].year != 'Uknown' & quotes[randomQuote].citation) {
-      //special html to add citation and year to show
-      html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="citation">' + quotes[randomQuote].citation + '</span><span class="year">' + quotes[randomQuote].year + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
+    } else if (quotes[randomQuote].citation != 'Uknown') {
+      //special html to add citation to show
+      html += '<p class="quote">' + quotes[randomQuote].quote + '</p> <p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title +'</span><span class="citation">' + quotes[randomQuote].citation +'</span><span class="quote-type">' + quotes[randomQuote].quote_type +'</span></p>';
       } else {
         //regular html
         html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
