@@ -6,6 +6,14 @@ project 1 - A Random Quote Generator
 // Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
 
+//TODO: Make Pretty and customize my styling.
+//TODO: Make it timed to change the quote.
+//TODO: Make the color change with each quote.
+//TODO: Cleanup quotes. Delete the project instructions and add in my own quotes.
+//TODO: Finish the README.md
+//TODO: Replace Ryan's quote it's too long and looks funky on the page.
+//TODO: it bothers me that the same quote often comes up twice when clicking the show next quote button. See if I can get it to loop.
+
 /*** 
   Create the array of quote objects and name it `quotes`.
   Add at least five quote objects to the `quotes` array.
@@ -33,7 +41,7 @@ const quotes = [
   {
     quote: 'The journey is apart of the experience - an expression of the seriousness of ones intent. One doesn’t take the A train to Mecca.',
     source: 'Anthony Bourdain',
-    source_title: 'Deceased American celebrity chef, author, and travel documentarian.',
+    source_title: 'American celebrity chef, author, and travel documentarian',
     year: 'Unknown',
     citation: 'Unknown',
     quote_type: '#travel'
@@ -41,7 +49,7 @@ const quotes = [
   {
     quote: 'My greatest skill has been to want but little.',
     source: 'Henry David Thoreau',
-    source_title: 'Deceased Poet, Journalist',
+    source_title: 'Poet & Journalist',
     year: '1854',
     citation: 'Walden',
     quote_type: '#minimalist'
@@ -49,7 +57,7 @@ const quotes = [
   {
     quote: 'As we look ahead into the next century, leaders will be those who empower others.',
     source: 'Bill Gates',
-    source_title: 'Founder of Microsft, Philathropist',
+    source_title: 'Founder of Microsft & Philathropist',
     year: 'Unknown',
     citation: 'Unknown',
     quote_type: '#tech'
@@ -104,7 +112,7 @@ console.log(getRandomQuote());
    - Use an if statement to check for the citation property before adding it to the HTML string.
    - Use an if statement to check for the year property before adding it to the HTML string.
    - Don't forget to close that final `p` tag.
-   - TODO: Set the `innerHTML` of the `quote-box` div to the HTML string. 
+   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 //writing through the if statement pathways
 //Can't use or statement because 
@@ -114,29 +122,34 @@ console.log(getRandomQuote());
 //last path: html format for neither being true
 
 // Breakthrough - I can't use random quote the way I have because it doesn't return a number. 
+//TODO: Figure out the error that is happening. Uknown is showing up sometimes and when it does it throws an error in the console. I think I know what is going on. I need to make all of them an && operator and compare the scenarious like one is unkown AND the other one isn't.
+//TODO: Cleanup HTML
+
 function printQuote () {
   let randomQuote = getRandomQuote();
   let html = '';
-  //let divQuoteBox = document.getElementById('quote-box');
+  let divQuoteBox = document.getElementById("quote-box");
   if (randomQuote.year != 'Uknown' && randomQuote.citation != 'Unknown') {
       //special html to add citation and year to show
       html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="citation">' + randomQuote.citation + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
     } else if (randomQuote.year != 'Uknown') {
       //special html to add year to show
       html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
-    } else if (randomQuote.citation != 'Uknown') {
+      } else if (randomQuote.citation != 'Uknown') {
       //special html to add citation to show
       html = '<p class="quote">' + randomQuote.quote + '</p> <p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title +'</span><span class="citation">' + randomQuote.citation +'</span><span class="quote-type">' + randomQuote.quote_type +'</span></p>';
-    } else {
+        } else {
         //regular html
         html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
-      }
-  return html;
+          }
+  
+  return  divQuoteBox.innerHTML = html;
 }
 
+//I couldn't get the button to work then I took out my test line and now it works and I have NO IDEA WHY lol. 
 
-//testing html - TODO: remove after
-console.log(printQuote()); 
+
+
 
 /***
   When the "Show another quote" button is clicked, the event listener 

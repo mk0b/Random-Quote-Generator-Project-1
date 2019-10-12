@@ -71,6 +71,16 @@ body {
   font-style: normal;
 }
 
+.source-title:before {
+  content: " ";
+  font-style: normal;
+}
+
+.quote-type:before {
+  content: ", ";
+  font-style: normal;
+}
+
 #loadQuote {
   position: fixed;
   width: 12em;
