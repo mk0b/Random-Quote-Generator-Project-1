@@ -8,10 +8,9 @@ project 1 - A Random Quote Generator
 
 //TODO: Make Pretty and customize my styling.
 //TODO: Make it timed to change the quote.
-//TODO: Make the background color change with each quote.
 //TODO: Cleanup quotes. Delete the project instructions and add in my own notes.
 //TODO: Finish the README.md
-//TODO: it bothers me that the same quote often comes up twice when clicking the show next quote button. See if I can get it to loop.
+//TODO: ? it bothers me that the same quote (and now color) often comes up twice when clicking the show next quote button. See if I can get it to loop.
 //TODO: Figure out how to make it more responsive?
 
 /*** 
@@ -120,6 +119,13 @@ function printQuote () {
   let randomQuote = getRandomQuote();
   let html = '';
   let divQuoteBox = document.getElementById("quote-box");
+  const randomColorList = ['red', 'blue', 'green', 'light blue', 'orange', 'purple'];
+  function getRandomColor () {
+    let randomNumber = Math.ceil(Math.random() * randomColorList.length); 
+    let randomColor = randomColorList[randomNumber];
+    return randomColor;
+  }
+  document.body.style.backgroundColor = getRandomColor();
   if (randomQuote.year != 'Uknown' && randomQuote.citation != 'Unknown') {
       //special html to add citation and year to show
       html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="citation">' + randomQuote.citation + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
