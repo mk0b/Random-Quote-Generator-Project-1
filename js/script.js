@@ -103,7 +103,7 @@ console.log(getRandomQuote());
    - Add the quote and source section to the HTML string.
    - Use an if statement to check for the citation property before adding it to the HTML string.
    - Use an if statement to check for the year property before adding it to the HTML string.
-   - TODO: Don't forget to close that final `p` tag.
+   - Don't forget to close that final `p` tag.
    - TODO: Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 //writing through the if statement pathways
@@ -112,25 +112,31 @@ console.log(getRandomQuote());
 //path 2: html format for one = true
 //path 3: html format for BOTH = true
 //last path: html format for neither being true
+
+// Breakthrough - I can't use random quote the way I have because it doesn't return a number. 
 function printQuote () {
   let randomQuote = getRandomQuote();
   let html = '';
-  if (quotes[randomQuote].year != 'Uknown' & quotes[randomQuote].citation) {
+  //let divQuoteBox = document.getElementById('quote-box');
+  if (randomQuote.year != 'Uknown' && randomQuote.citation != 'Unknown') {
       //special html to add citation and year to show
-      html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="citation">' + quotes[randomQuote].citation + '</span><span class="year">' + quotes[randomQuote].year + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
-  } else if (quotes[randomQuote].year != 'Uknown') {
+      html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="citation">' + randomQuote.citation + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
+    } else if (randomQuote.year != 'Uknown') {
       //special html to add year to show
-      html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="year">' + quotes[randomQuote].year + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
-    } else if (quotes[randomQuote].citation != 'Uknown') {
+      html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
+    } else if (randomQuote.citation != 'Uknown') {
       //special html to add citation to show
-      html += '<p class="quote">' + quotes[randomQuote].quote + '</p> <p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title +'</span><span class="citation">' + quotes[randomQuote].citation +'</span><span class="quote-type">' + quotes[randomQuote].quote_type +'</span></p>';
-      } else {
+      html = '<p class="quote">' + randomQuote.quote + '</p> <p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title +'</span><span class="citation">' + randomQuote.citation +'</span><span class="quote-type">' + randomQuote.quote_type +'</span></p>';
+    } else {
         //regular html
-        html += '<p class="quote">' + quotes[randomQuote].quote + '</p><p class="source">' + quotes[randomQuote].source + '<span class="source-title">' + quotes[randomQuote].source_title + '</span><span class="quote-type">' + quotes[randomQuote].quote_type + '</span></p>'
+        html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
       }
-
+  return html;
 }
 
+
+//testing html - TODO: remove after
+console.log(printQuote()); 
 
 /***
   When the "Show another quote" button is clicked, the event listener 
