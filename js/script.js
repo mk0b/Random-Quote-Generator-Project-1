@@ -8,11 +8,11 @@ project 1 - A Random Quote Generator
 
 //TODO: Make Pretty and customize my styling.
 //TODO: Make it timed to change the quote.
-//TODO: Make the color change with each quote.
-//TODO: Cleanup quotes. Delete the project instructions and add in my own quotes.
+//TODO: Make the background color change with each quote.
+//TODO: Cleanup quotes. Delete the project instructions and add in my own notes.
 //TODO: Finish the README.md
-//TODO: Replace Ryan's quote it's too long and looks funky on the page.
 //TODO: it bothers me that the same quote often comes up twice when clicking the show next quote button. See if I can get it to loop.
+//TODO: Figure out how to make it more responsive?
 
 /*** 
   Create the array of quote objects and name it `quotes`.
@@ -41,7 +41,7 @@ const quotes = [
   {
     quote: 'The journey is apart of the experience - an expression of the seriousness of ones intent. One doesn’t take the A train to Mecca.',
     source: 'Anthony Bourdain',
-    source_title: 'American celebrity chef, author, and travel documentarian',
+    source_title: 'Travel Documentarian, Chef, & Author',
     year: 'Unknown',
     citation: 'Unknown',
     quote_type: '#travel'
@@ -71,11 +71,11 @@ const quotes = [
     quote_type: '#tech'
   },
   {
-    quote: 'I have to remind myself everyday that I’m going to strike out more than I get a hit. I have to not be afraid of the strikeouts. Doesn’t mean I don’t train super hard to hit the ball and learn new techniques, but none of that is going to make me hit 100%. 1/5 is a great average.',
+    quote: 'MY WHY HAS TO BE GREATOR THAN THE KNOCKDOWN.',
     source: 'Ryan Carson',
     source_title: 'Founder of Treehouse',
     year: '2019',
-    citation: 'Twitter @ryancarson',
+    citation: 'Instagram @ryancarson',
     quote_type: '#tech'
   }
 ];
@@ -113,17 +113,8 @@ console.log(getRandomQuote());
    - Use an if statement to check for the year property before adding it to the HTML string.
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
-//writing through the if statement pathways
-//Can't use or statement because 
-//path 1: html format for other one = true
-//path 2: html format for one = true
-//path 3: html format for BOTH = true
-//last path: html format for neither being true
+***/ 
 
-// Breakthrough - I can't use random quote the way I have because it doesn't return a number. 
-//TODO: Figure out the error that is happening. Uknown is showing up sometimes and when it does it throws an error in the console. I think I know what is going on. I need to make all of them an && operator and compare the scenarious like one is unkown AND the other one isn't.
-//TODO: Cleanup HTML
 
 function printQuote () {
   let randomQuote = getRandomQuote();
@@ -132,21 +123,20 @@ function printQuote () {
   if (randomQuote.year != 'Uknown' && randomQuote.citation != 'Unknown') {
       //special html to add citation and year to show
       html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="citation">' + randomQuote.citation + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
-    } else if (randomQuote.year != 'Uknown') {
-      //special html to add year to show
-      html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
-      } else if (randomQuote.citation != 'Uknown') {
-      //special html to add citation to show
-      html = '<p class="quote">' + randomQuote.quote + '</p> <p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title +'</span><span class="citation">' + randomQuote.citation +'</span><span class="quote-type">' + randomQuote.quote_type +'</span></p>';
-        } else {
-        //regular html
+    } else if (randomQuote.year === 'Unknown' && randomQuote.citation === 'Unknown') {
+        //special html without citation or year
         html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
+      } else if (randomQuote.year != 'Uknown') {
+        //special html to add year to show
+        html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
+        } else if (randomQuote.citation != 'Uknown') {
+        //special html to add citation to show
+        html = '<p class="quote">' + randomQuote.quote + '</p> <p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title +'</span><span class="citation">' + randomQuote.citation +'</span><span class="quote-type">' + randomQuote.quote_type +'</span></p>';
           }
-  
   return  divQuoteBox.innerHTML = html;
 }
 
-//I couldn't get the button to work then I took out my test line and now it works and I have NO IDEA WHY lol. 
+//I couldn't get the below function for the button to work then I took out my test line and now it works and I have NO IDEA WHY lol. 
 
 
 

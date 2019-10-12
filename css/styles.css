@@ -77,7 +77,7 @@ body {
 }
 
 .quote-type:before {
-  content: ", ";
+  content: " | ";
   font-style: normal;
 }
 
