@@ -8,7 +8,7 @@ project 1 - A Random Quote Generator
 
 //TODO: Make Pretty and customize my styling.
 //TODO: Make it timed to change the quote.
-//TODO: Cleanup quotes. Delete the project instructions and add in my own notes.
+//TODO: Delete the project instructions and add in my own notes.
 //TODO: Finish the README.md
 //TODO: ? it bothers me that the same quote (and now color) often comes up twice when clicking the show next quote button. See if I can get it to loop.
 //TODO: Figure out how to make it more responsive?
@@ -114,7 +114,10 @@ console.log(getRandomQuote());
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/ 
 
-
+/*** 
+ * The function below sets a random background color, decides which html to set dependant on if year or citation or both is unknown,
+ * and returns the innerHTML of the html chosen. 
+ */
 function printQuote () {
   let randomQuote = getRandomQuote();
   let html = '';
@@ -139,13 +142,10 @@ function printQuote () {
         //special html to add citation to show
         html = '<p class="quote">' + randomQuote.quote + '</p> <p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title +'</span><span class="citation">' + randomQuote.citation +'</span><span class="quote-type">' + randomQuote.quote_type +'</span></p>';
           }
+  //testing output trying to figure out why sometimes I get an error.
+  console.log(divQuoteBox.innerHTML = html);
   return  divQuoteBox.innerHTML = html;
 }
-
-//I couldn't get the below function for the button to work then I took out my test line and now it works and I have NO IDEA WHY lol. 
-
-
-
 
 /***
   When the "Show another quote" button is clicked, the event listener 
@@ -158,3 +158,10 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
+
+//I need to call the print function within the timed window function here so it does it auto then it will also do it when the button is clicked.
+//Or I may need to put it after the button function if it randomly stops working when I put this here. 
+//infinite loop - seems to break the page I'm only going to let it do 100 times.
+for (i = 0; i <100; i++) {
+  window.setTimeout('printQuote()', 10000, 'Auto Changed after 10000 miliseconds.');
+}
