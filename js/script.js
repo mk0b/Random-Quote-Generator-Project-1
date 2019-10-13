@@ -48,7 +48,7 @@ const quotes = [
     quote: 'My passion has been to build an enduring company where people were motivated to make great products. Everything else was secondary.',
     source: 'Steve Jobs',
     source_title: 'Founder of Apple',
-    year: 'Uknown',
+    year: 'Unknown',
     citation: 'Steve Jobs Biography by Walter Isaacson',
     quote_type: '#tech'
   },
@@ -68,46 +68,43 @@ console.log(quotes);
 
 
 /**I was using the wrong equation and had to ask for help in the end I received a
- * hint and switched to using math.floor instead of math.ceil and subtracting by 1
- * because an array.length starts at 1 and not 0.
+ * hint and switched to using math.floor instead of math.ceil.
  * The below creates a random number and returns it.
  */
 
 function getRandomQuote () {
-  let randomNumber = Math.floor(Math.random() * (quotes.length - 1));
+  let randomNumber = Math.floor(Math.random() * quotes.length);
   let randomQuote = quotes[randomNumber];
   return randomQuote;
 }
 
 /*** 
  * The function below sets a random background color, decides which html to set dependant on if year or citation or both is unknown,
- * and returns the innerHTML of the html chosen. 
+ * and returns the innerHTML of the html chosen. I rewrote the if statements after a review
+ * and a suggestion that I could make it simpler.
  */
 
 function printQuote () {
   let randomQuote = getRandomQuote();
-  let html = '';
+  let html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="quote-type">' + randomQuote.quote_type + '</span>';
   let divQuoteBox = document.getElementById("quote-box");
   const randomColorList = ['red', 'blue', 'green', 'light blue', 'orange', 'purple'];
   function getRandomColor () {
-    let randomNumber = Math.floor(Math.random() * (randomColorList.length - 1)); 
+    let randomNumber = Math.floor(Math.random() * randomColorList.length); 
     let randomColor = randomColorList[randomNumber];
     return randomColor;
   }
   document.body.style.backgroundColor = getRandomColor();
-  if (randomQuote.year != 'Uknown' && randomQuote.citation != 'Unknown') {
-      //special html to add citation and year to show
-      html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="citation">' + randomQuote.citation + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
-    } else if (randomQuote.year === 'Unknown' && randomQuote.citation === 'Unknown') {
-        //special html without citation or year
-        html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
-      } else if (randomQuote.year != 'Uknown') {
-        //special html to add year to show
-        html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="year">' + randomQuote.year + '</span><span class="quote-type">' + randomQuote.quote_type + '</span></p>';
-        } else if (randomQuote.citation != 'Uknown') {
-        //special html to add citation to show
-        html = '<p class="quote">' + randomQuote.quote + '</p> <p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title +'</span><span class="citation">' + randomQuote.citation +'</span><span class="quote-type">' + randomQuote.quote_type +'</span></p>';
-          }
+  
+  if (randomQuote.year != 'Unknown') {
+    html += '<span class="year">' + randomQuote.year + '</span>';
+  }
+
+  if (randomQuote.citation != 'Unknown') {
+    html += '<span class="citation">' + randomQuote.citation + '</span>';
+  }
+
+  html += '</p>';
   return  divQuoteBox.innerHTML = html;
 }
 
