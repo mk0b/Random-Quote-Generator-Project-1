@@ -93,7 +93,7 @@ console.log(quotes);
 //Should use Math.ceil because we want to possibility of 0.
 //Almost made this too complicated but I just needed to store the random number into another variable and return that.
 function getRandomQuote () {
-  let randomNumber = Math.ceil(Math.random() * quotes.length);
+  let randomNumber = Math.floor(Math.random() * (quotes.length - 1));
   let randomQuote = quotes[randomNumber];
   return randomQuote;
 }
@@ -124,7 +124,7 @@ function printQuote () {
   let divQuoteBox = document.getElementById("quote-box");
   const randomColorList = ['red', 'blue', 'green', 'light blue', 'orange', 'purple'];
   function getRandomColor () {
-    let randomNumber = Math.ceil(Math.random() * randomColorList.length); 
+    let randomNumber = Math.floor(Math.random() * (randomColorList.length - 1)); 
     let randomColor = randomColorList[randomNumber];
     return randomColor;
   }
@@ -159,9 +159,5 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
 
-//I need to call the print function within the timed window function here so it does it auto then it will also do it when the button is clicked.
-//Or I may need to put it after the button function if it randomly stops working when I put this here. 
-//infinite loop - seems to break the page I'm only going to let it do 100 times.
-for (i = 0; i <100; i++) {
-  window.setTimeout('printQuote()', 10000, 'Auto Changed after 10000 miliseconds.');
-}
+//Lauren recommended going with setInterval instead of window.setTimeout()
+setInterval('printQuote()', 10000);
