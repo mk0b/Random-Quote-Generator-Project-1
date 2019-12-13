@@ -3,13 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-/***
- * Created a Quotes array with the following properties and their level of requirement.
- * Required in all: quote, source
- * Required in at least 1: citation, year
- * Ones I'm adding myself: source title, quote type
- * Need at least 5 quotes. 
- */
+//quotes array of objects
 
 const quotes = [
   {
@@ -62,39 +56,35 @@ const quotes = [
   }
 ];
 
-//testing quotes array.
+const randomColorList = [
+  '#0080ff', 
+  '#8000ff', 
+  '#400080', 
+  '#800080', 
+  '#008080', 
+  '#800040'
+];
 
-console.log(quotes);
+//Helper Function
 
+const getRandomNumber = (array) => {
+  const randomNumber = Math.floor(Math.random() * array.length);
+  const arrayItem = array[randomNumber];
+  return arrayItem;
+};
 
-/**I was using the wrong equation and had to ask for help in the end I received a
- * hint and switched to using math.floor instead of math.ceil.
- * The below creates a random number and returns it.
- */
-
-function getRandomQuote () {
-  let randomNumber = Math.floor(Math.random() * quotes.length);
-  let randomQuote = quotes[randomNumber];
-  return randomQuote;
-}
 
 /*** 
  * The function below sets a random background color, decides which html to set dependant on if year or citation or both is unknown,
- * and returns the innerHTML of the html chosen. I rewrote the if statements after a review
- * and a suggestion that I could make it simpler.
+ * and returns the innerHTML of the html chosen.
  */
 
 function printQuote () {
-  let randomQuote = getRandomQuote();
+  const randomQuote = getRandomNumber(quotes);
   let html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="quote-type">' + randomQuote.quote_type + '</span>';
-  let divQuoteBox = document.getElementById("quote-box");
-  const randomColorList = ['red', 'blue', 'green', 'light blue', 'orange', 'purple'];
-  function getRandomColor () {
-    let randomNumber = Math.floor(Math.random() * randomColorList.length); 
-    let randomColor = randomColorList[randomNumber];
-    return randomColor;
-  }
-  document.body.style.backgroundColor = getRandomColor();
+  const divQuoteBox = document.getElementById("quote-box");
+
+  document.body.style.backgroundColor = getRandomNumber(randomColorList);
   
   if (randomQuote.year != 'Unknown') {
     html += '<span class="year">' + randomQuote.year + '</span>';
@@ -115,11 +105,6 @@ function printQuote () {
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
-
-/*** I was originally trying to use a for loop with window.setTimeout() but then a
- * fellow student recommended I use setInterval.
- * The below changes the quote every 12 seconds. 
- */
+//Quote will change every 12 seconds
 
 setInterval('printQuote()', 12000);
