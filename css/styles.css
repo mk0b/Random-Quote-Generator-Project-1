@@ -4,7 +4,7 @@
  */
 
 body {
-  background-color: #36b55c;
+  background-color: #000000b4;
   color: #f1f3f1;
   font-family: 'Playfair Display', serif;
 }
@@ -88,16 +88,16 @@ body {
   left: 50%;
   margin-left: -6em;
   bottom: 150px;
-  border-radius: 4px;
+  border-radius: 10px;
   border: 2px solid #f1f3f1;
   color: #f1f3f1;
-  background-color: #515351;
+  background-color: #51535100;
   padding: 15px 0;
   transition: .5s ;
 }
 
 #loadQuote:hover {
-  background-color: #9fa19f;
+  background-color: #dadbda94;
 }
 
 #loadQuote:focus {

@@ -4,7 +4,6 @@ project 1 - A Random Quote Generator
 ******************************************/
 
 //quotes array of objects
-
 const quotes = [
   {
     quote: 'Build what you want to see in the world.',
@@ -56,6 +55,7 @@ const quotes = [
   }
 ];
 
+//colors array
 const randomColorList = [
   '#0080ff', 
   '#8000ff', 
@@ -65,33 +65,38 @@ const randomColorList = [
   '#800040'
 ];
 
-//Helper Function
+//Quote will change every 12 seconds
+let timer = setInterval(printQuote, 12000);
 
+//helper function to get random item in an array
 const getRandomNumber = (array) => {
   const randomNumber = Math.floor(Math.random() * array.length);
   const arrayItem = array[randomNumber];
   return arrayItem;
 };
 
-
 /*** 
  * The function below sets a random background color, decides which html to set dependant on if year or citation or both is unknown,
  * and returns the innerHTML of the html chosen.
  */
-
 function printQuote () {
   const randomQuote = getRandomNumber(quotes);
-  let html = '<p class="quote">' + randomQuote.quote + '</p><p class="source">' + randomQuote.source + '<span class="source-title">' + randomQuote.source_title + '</span><span class="quote-type">' + randomQuote.quote_type + '</span>';
   const divQuoteBox = document.getElementById("quote-box");
-
+  let html = `<p class="quote"> ${randomQuote.quote} </p><p class="source"> ${randomQuote.source} <span class="source-title"> 
+  ${randomQuote.source_title} </span><span class="quote-type"> ${randomQuote.quote_type} </span>`;
+  
   document.body.style.backgroundColor = getRandomNumber(randomColorList);
   
+  //when the button is clicked the timer resets for better usablity
+  clearInterval(timer);
+  timer = setInterval(printQuote, 12000);
+
   if (randomQuote.year != 'Unknown') {
-    html += '<span class="year">' + randomQuote.year + '</span>';
+    html += `<span class="year"> ${randomQuote.year} </span>`;
   }
 
   if (randomQuote.citation != 'Unknown') {
-    html += '<span class="citation">' + randomQuote.citation + '</span>';
+    html += `<span class="citation"> ${randomQuote.citation} </span>`;
   }
 
   html += '</p>';
@@ -99,12 +104,7 @@ function printQuote () {
 }
 
 /***
-  Right below was existing code.
+  Right below was existing code that adds the event listener to the button.
+  When the button is clicked, the printQuote function is going to run.
 ***/
-
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-//Quote will change every 12 seconds
-
-setInterval('printQuote()', 12000);
