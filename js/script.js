@@ -65,7 +65,7 @@ const randomColorList = [
   '#800040'
 ];
 
-//Quote will change every 12 seconds
+//quote will change every 12 seconds
 let timer = setInterval(printQuote, 12000);
 
 //helper function to get random item in an array
