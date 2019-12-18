@@ -1,6 +1,17 @@
 # Random-Quote-Generator-Project-1
  Megan Katherine O'Brien's Random Quote Generator Project 1 as a TeamTreeHouse Full Stack JavaScript Talent Path student.
 
-Grading note: I am trying for exceeds expectations but ok with meets expectations.
+## Description
 
-This program is a random quote generator. The quotes will change every 12 seconds and the user can change the quote by clicking the button. The background also randomly generates when the quote is changed or when the button is clicked to change the quote.
+This app is a random quote generator. The quotes and background color will change on their own or the user can click the "Another Quote" button. I hope you enjoy some of my favorite quotes. 
+
+### Technologies Used
+
+- JavaScript
+- HTML
+- CSS
+
+### Features
+
+- Quotes and background color are chosen randomly and will change on their own or when the button is clicked.
+- When the button is clicked the interval is reset for better usability.
