@@ -13,6 +13,10 @@ This app is a random quote generator. The quotes and background color will chang
 - Quotes and background color are chosen randomly and will change on their own or when the button is clicked.
 - When the button is clicked the interval is reset for better usability.
 
+### How to use this app:
+
+Live Site: https://mk0b.github.io/Random-Quote-Generator-Project-1/
+
 #### Author
 
 Megan Katherine O'Brien | www.megankatherineobrien.com
