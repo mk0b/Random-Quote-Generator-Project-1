@@ -81,6 +81,7 @@ const getRandomNumber = (array) => {
 const getRandomNumberTest = (array, arrayItem) => {
   const randomNumber = Math.floor(Math.random() * array.length);
   arrayItem = array[randomNumber];
+  console.log('Array Item in Random Test function: ', arrayItem)
   return arrayItem;
 };
 
