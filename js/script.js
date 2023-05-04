@@ -73,9 +73,12 @@ let lastNumber;
 const getRandomNumber = (array) => {
   console.log('lastNumber in random numbr function: ', lastNumber)
   const randomNumber = Math.floor(Math.random() * array.length);
-  const arrayItem = array[randomNumber];
+  if (lastNumber === randomNumber) {
+    console.log('Last number is the same as random number!!!')
+  };
   //logging random number history
   lastNumber = randomNumber;
+  const arrayItem = array[randomNumber];
   return arrayItem;
 };
 
