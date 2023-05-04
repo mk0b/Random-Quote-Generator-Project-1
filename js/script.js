@@ -78,12 +78,14 @@ const getRandomNumber = (array) => {
 };
 
 //helper function to get random item in an array - testing theory
-const getRandomNumberTest = (array, arrayItem) => {
+const getRandomNumberTest = (array, arrayItemTest) => {
   const randomNumber = Math.floor(Math.random() * array.length);
-  arrayItem = array[randomNumber];
+  arrayItemTest = array[randomNumber];
   console.log('Array Item in Random Test function: ', arrayItem)
-  return arrayItem;
+  return arrayItemTest;
 };
+
+console.log(arrayItemTest)
 
 //trying the fisher-yates shuffle repeats seem to re-occur less often - NOT WORKING
 //const getRandomNumberShuffle = (array) => {
