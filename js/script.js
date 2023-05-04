@@ -74,6 +74,8 @@ const getRandomNumber = (array) => {
   console.log('lastNumber in random numbr function: ', lastNumber)
   const randomNumber = Math.floor(Math.random() * array.length);
   const arrayItem = array[randomNumber];
+  //logging random number history
+  lastNumber = randomNumber;
   return arrayItem;
 };
 
