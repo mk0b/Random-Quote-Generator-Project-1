@@ -75,6 +75,22 @@ const getRandomNumber = (array) => {
   return arrayItem;
 };
 
+//trying the fisher-yates shuffle to make sure the quotes do not re-occur
+const getRandomNumberShuffle = (array) => {
+  let i = array.length,
+      j = 0,
+      temp;
+  while (i--) {
+    j = Math.floor(Math.random() * (i+1));
+
+    //swap randoml chosen element with current element
+    temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+};
+
 /*** 
  * The function below sets a random background color, decides which html to set dependant on if year or citation or both is unknown,
  * and returns the innerHTML of the html chosen.
