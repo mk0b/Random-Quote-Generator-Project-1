@@ -85,7 +85,7 @@ const getRandomNumberTest = (array, arrayItemTest) => {
   return arrayItemTest;
 };
 
-console.log(arrayItemTest)
+console.log('Array item test after function runs: ', arrayItemTest)
 
 //trying the fisher-yates shuffle repeats seem to re-occur less often - NOT WORKING
 //const getRandomNumberShuffle = (array) => {
