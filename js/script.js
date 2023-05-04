@@ -96,7 +96,8 @@ const getRandomNumberShuffle = (array) => {
  * and returns the innerHTML of the html chosen.
  */
 function printQuote () {
-  const randomQuote = getRandomNumber(quotes);
+  //const randomQuote = getRandomNumber(quotes);
+  const randomQuote = getRandomNumberShuffle(quotes);
   const divQuoteBox = document.getElementById("quote-box");
   let html = `<p class="quote"> ${randomQuote.quote} </p><p class="source"> ${randomQuote.source} <span class="source-title"> 
   ${randomQuote.source_title} </span><span class="quote-type"> ${randomQuote.quote_type} </span>`;
