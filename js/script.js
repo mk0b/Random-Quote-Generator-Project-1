@@ -88,6 +88,7 @@ const getRandomNumberShuffle = (array) => {
     array[i] = array[j];
     array[j] = temp;
   }
+  console.log('Array in getRandomNumberShuffle: ', array)
   return array;
 };
 
