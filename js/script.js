@@ -67,8 +67,6 @@ const randomColorList = [
 
 //quote will change every 12 seconds
 let timer = setInterval(printQuote, 12000);
-let arrayItemTest;
-console.log('Array item test at creation: ', arrayItemTest)
 
 //helper function to get random item in an array - orignal working function
 const getRandomNumber = (array) => {
@@ -77,40 +75,12 @@ const getRandomNumber = (array) => {
   return arrayItem;
 };
 
-//helper function to get random item in an array - testing theory
-const getRandomNumberTest = (array, arrayItemTest) => {
-  const randomNumber = Math.floor(Math.random() * array.length);
-  arrayItemTest = array[randomNumber];
-  console.log('Array Item in Random Test function: ', arrayItemTest)
-  return arrayItemTest;
-};
-
-console.log('Array item test after function runs: ', arrayItemTest)
-
-//trying the fisher-yates shuffle repeats seem to re-occur less often - NOT WORKING
-//const getRandomNumberShuffle = (array) => {
-  //let i = array.length,
-      //j = 0,
-      //temp;
-  //while (i--) {
-    //j = Math.floor(Math.random() * (i+1));
-
-    //swap randoml chosen element with current element
-    //temp = array[i];
-    //array[i] = array[j];
-    //array[j] = temp;
-  ///}
-  //console.log('Array in getRandomNumberShuffle: ', array)
-  //return array[j];
-//};
-
 /*** 
  * The function below sets a random background color, decides which html to set dependant on if year or citation or both is unknown,
  * and returns the innerHTML of the html chosen.
  */
 function printQuote () {
-  //const randomQuote = getRandomNumber(quotes);
-  const randomQuote = getRandomNumberTest(quotes, arrayItemTest);
+  const randomQuote = getRandomNumber(quotes);
   const divQuoteBox = document.getElementById("quote-box");
   let html = `<p class="quote"> ${randomQuote.quote} </p><p class="source"> ${randomQuote.source} <span class="source-title"> 
   ${randomQuote.source_title} </span><span class="quote-type"> ${randomQuote.quote_type} </span>`;
