@@ -75,7 +75,7 @@ const getRandomNumber = (array) => {
   return arrayItem;
 };
 
-//trying the fisher-yates shuffle to make sure the quotes do not re-occur
+//trying the fisher-yates shuffle repeats seem to re-occur less often
 const getRandomNumberShuffle = (array) => {
   let i = array.length,
       j = 0,
