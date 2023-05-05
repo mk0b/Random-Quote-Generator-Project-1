@@ -67,19 +67,11 @@ const randomColorList = [
 
 //quote will change every 12 seconds
 let timer = setInterval(printQuote, 12000);
-let lastNumber;
 
 //helper function to get random item in an array - orignal working function
 const getRandomNumber = (array) => {
   console.log('lastNumber in random numbr function: ', lastNumber)
-  let randomNumber = Math.floor(Math.random() * array.length);
-  while (lastNumber === randomNumber) {
-    const newNumber = Math.floor(Math.random() * array.length);
-    console.log('New Number: ', newNumber)
-    randomNumber = newNumber;
-  };
-  //logging random number history
-  lastNumber = randomNumber;
+  const randomNumber = Math.floor(Math.random() * array.length);
   const arrayItem = array[randomNumber];
   return arrayItem;
 };
