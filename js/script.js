@@ -72,7 +72,7 @@ let lastNumber;
 //helper function to get random item in an array - orignal working function
 const getRandomNumber = (array) => {
   console.log('lastNumber in random numbr function: ', lastNumber)
-  const randomNumber = Math.floor(Math.random() * array.length);
+  let randomNumber = Math.floor(Math.random() * array.length);
   while (lastNumber === randomNumber) {
     const newNumber = Math.floor(Math.random() * array.length);
     console.log('New Number: ', newNumber)
